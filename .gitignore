@@ -1,0 +1,13 @@
+﻿# OS files
+.DS_Store
+Thumbs.db
+
+# temporary files
+*.tmp
+*.bak
+
+# packaged submissions
+*.zip
+
+# secrets
+.env

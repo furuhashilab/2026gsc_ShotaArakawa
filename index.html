@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>&#34892;&#30000;&#24066; &#12414;&#12427;&#12431;&#12363;&#12426;&#35251;&#20809;&#12510;&#12483;&#12503;</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- MapLibre -->
+  <link
+    href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css"
+    rel="stylesheet"
+  />
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css?v=20260721-2" />
+</head>
+<body>
+
+  <main class="map-stage">
+    <section class="map-paper" aria-label="Gyoda sightseeing map">
+      <div id="map"></div>
+      <div class="paper-texture" aria-hidden="true"></div>
+      <div class="paper-edge" aria-hidden="true"></div>
+      <div class="petal-layer" id="petal-layer" aria-hidden="true"></div>
+
+      <header class="map-header">
+        <h1>&#34892;&#30000;&#24066; &#12414;&#12427;&#12431;&#12363;&#12426;&#35251;&#20809;&#12510;&#12483;&#12503;</h1>
+        <p>&#27508;&#21490;&#12539;&#12464;&#12523;&#12513;&#12539;&#12450;&#12463;&#12475;&#12473;&#12434;&#12402;&#12392;&#30446;&#12391;</p>
+      </header>
+
+      <nav class="mobile-panel-controls" aria-label="&#22320;&#22259;&#12513;&#12491;&#12517;&#12540;">
+        <button
+          id="mobile-legend-toggle"
+          class="mobile-panel-toggle"
+          type="button"
+          aria-controls="legend"
+          aria-expanded="false"
+        >&#12473;&#12509;&#12483;&#12488;</button>
+        <button
+          id="mobile-route-toggle"
+          class="mobile-panel-toggle"
+          type="button"
+          aria-controls="route-panel"
+          aria-expanded="false"
+        >&#12523;&#12540;&#12488;</button>
+      </nav>
+
+      <div class="legend" id="legend"></div>
+      <aside class="route-panel" id="route-panel" aria-label="おすすめ観光ルート"></aside>
+    </section>
+  </main>
+
+  <div id="spot-panel" class="spot-panel is-hidden">
+    <div class="spot-panel-header">
+      <div class="spot-panel-title">&#12473;&#12509;&#12483;&#12488;&#35443;&#32048;</div>
+      <button id="spot-panel-close" class="spot-panel-close" aria-label="close">&times;</button>
+    </div>
+    <div id="spot-panel-body" class="spot-panel-body"></div>
+  </div>
+
+  <script src="main.js?v=20260721-2"></script>
+</body>
+</html>

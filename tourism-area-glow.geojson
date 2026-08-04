@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 1.0 },
+      "geometry": { "type": "Point", "coordinates": [139.4540, 36.1418] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 0.92 },
+      "geometry": { "type": "Point", "coordinates": [139.4580, 36.1426] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 0.96 },
+      "geometry": { "type": "Point", "coordinates": [139.4616, 36.1398] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 0.88 },
+      "geometry": { "type": "Point", "coordinates": [139.4640, 36.1360] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 0.82 },
+      "geometry": { "type": "Point", "coordinates": [139.4598, 36.1334] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 0.76 },
+      "geometry": { "type": "Point", "coordinates": [139.4543, 36.1347] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "castle-town", "weight": 0.68 },
+      "geometry": { "type": "Point", "coordinates": [139.4506, 36.1384] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 0.82 },
+      "geometry": { "type": "Point", "coordinates": [139.4752, 36.1308] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 0.94 },
+      "geometry": { "type": "Point", "coordinates": [139.4793, 36.1320] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 1.0 },
+      "geometry": { "type": "Point", "coordinates": [139.4833, 36.1302] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 0.96 },
+      "geometry": { "type": "Point", "coordinates": [139.4854, 36.1267] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 0.9 },
+      "geometry": { "type": "Point", "coordinates": [139.4818, 36.1235] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 0.78 },
+      "geometry": { "type": "Point", "coordinates": [139.4766, 36.1248] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "sakitama-kofun", "weight": 0.72 },
+      "geometry": { "type": "Point", "coordinates": [139.4870, 36.1298] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 0.76 },
+      "geometry": { "type": "Point", "coordinates": [139.4970, 36.1358] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 0.9 },
+      "geometry": { "type": "Point", "coordinates": [139.5010, 36.1370] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 1.0 },
+      "geometry": { "type": "Point", "coordinates": [139.5042, 36.1344] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 0.96 },
+      "geometry": { "type": "Point", "coordinates": [139.5057, 36.1308] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 0.88 },
+      "geometry": { "type": "Point", "coordinates": [139.5022, 36.1277] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 0.78 },
+      "geometry": { "type": "Point", "coordinates": [139.4976, 36.1292] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "areaId": "ancient-lotus", "weight": 0.68 },
+      "geometry": { "type": "Point", "coordinates": [139.5071, 36.1339] }
+    }
+  ]
+}

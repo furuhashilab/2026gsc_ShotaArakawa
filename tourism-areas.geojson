@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "castle-town",
+        "name": "城下町・歴史散策エリア",
+        "theme": "history-town",
+        "fillColor": "#e7a6ad",
+        "outlineColor": "#a9636d",
+        "labelColor": "#7c3d49"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [139.4490, 36.1445],
+          [139.4570, 36.1460],
+          [139.4636, 36.1447],
+          [139.4675, 36.1405],
+          [139.4668, 36.1330],
+          [139.4610, 36.1298],
+          [139.4532, 36.1303],
+          [139.4472, 36.1342],
+          [139.4463, 36.1398],
+          [139.4490, 36.1445]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sakitama-kofun",
+        "name": "さきたま古墳エリア",
+        "theme": "ancient-history",
+        "fillColor": "#9dbb82",
+        "outlineColor": "#627f50",
+        "labelColor": "#3f5f34"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [139.4715, 36.1332],
+          [139.4788, 36.1352],
+          [139.4856, 36.1336],
+          [139.4890, 36.1290],
+          [139.4880, 36.1230],
+          [139.4820, 36.1193],
+          [139.4745, 36.1205],
+          [139.4700, 36.1250],
+          [139.4715, 36.1332]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ancient-lotus",
+        "name": "古代蓮・水辺エリア",
+        "theme": "lotus-water",
+        "fillColor": "#86bfc2",
+        "outlineColor": "#4f8588",
+        "labelColor": "#315f62"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [139.4950, 36.1388],
+          [139.5020, 36.1402],
+          [139.5080, 36.1370],
+          [139.5100, 36.1312],
+          [139.5072, 36.1255],
+          [139.5008, 36.1233],
+          [139.4946, 36.1260],
+          [139.4925, 36.1321],
+          [139.4950, 36.1388]
+        ]]
+      }
+    }
+  ]
+}

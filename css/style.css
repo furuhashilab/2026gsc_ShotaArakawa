@@ -1,0 +1,212 @@
+
+    .legend {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.legend-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.legend-pin {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff, 0 1px 6px rgba(0,0,0,0.25);
+  flex: 0 0 auto;
+}
+.legend-pin::before {
+  content: "";
+  position: absolute;
+  inset: 4px;            /* 中の白丸 */
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.95;
+}
+
+.legend-pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;   /* 先端の三角 */
+  border-top-color: currentColor;  /* 色は親の color を使う */
+}
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+    .popup-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+    .popup-title {
+         font-family: "Dela Gothic One", system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 10;
+      margin-bottom: 4px;
+    }
+    .popup-links a {
+  display: inline-block;
+  margin-top: 6px;
+}
+.popup-desc {
+  font-size: 13px;
+  color: #444;
+  margin: 6px 0 8px;
+  line-height: 1.4;
+}
+.map-header {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  padding: 10px 18px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.map-header h1 {
+  font-family: "Dela Gothic One", system-ui, sans-serif;
+  font-size: 30px;       
+  font-weight: 100;      
+  letter-spacing: 0.02em; 
+  margin: 0;
+}
+
+.map-header p {
+font-family: "Dela Gothic One", system-ui, sans-serif;  
+  font-size: 12px;
+  margin: 4px 0 0;
+  color: #555555fe;
+}
+
+
+/* Vlog（YouTubeへ遷移）ボタン */
+.popup-vlog-link {
+  display: block;
+  margin-top: 8px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #ef4444;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.popup-vlog-link:hover {
+  opacity: 0.9;
+}
+/* 共通（枠） */
+.popup-video {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* 縦動画（YouTube Shorts 用） */
+.popup-video-vertical {
+  padding-top: 177.78%; /* 16:9 の逆 → 9:16 */
+  max-height: 250px;    /* デカくなりすぎ防止 */
+}
+
+/* iframe共通 */
+.popup-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.spot-panel{
+  position: fixed;
+  top: 150px;        /* ヘッダー＋凡例の高さに合わせて調整 */
+  left: 14px;
+  width: 320px;      /* 凡例の幅に合わせる */
+  background: rgba(255,255,255,0.96);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.spot-panel.is-hidden{ display:none; }
+
+.spot-panel-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+.spot-panel-title{
+  font-weight:700;
+  font-size:14px;
+}
+
+.spot-panel-close{
+  width:28px;height:28px;
+  border-radius:8px;
+  border:0;
+  background: rgba(0,0,0,0.06);
+  cursor:pointer;
+  font-size:18px;
+  line-height:1;
+}
+
+.spot-panel-body{
+  padding:12px;
+  max-height: 60vh;
+  overflow:auto;
+}
+
+/* スマホ：下から出す */
+@media (max-width:480px){
+  .spot-panel{
+    top:auto;
+    left:10px;
+    right:10px;
+    bottom:10px;
+    width:auto;
+  }
+  .spot-panel-body{ max-height:42vh; }
+}
+
