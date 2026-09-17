@@ -16,7 +16,7 @@
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css?v=20260721-2" />
+  <link rel="stylesheet" href="style.css?v=20260917-1" />
 </head>
 <body>
 
@@ -51,6 +51,11 @@
 
       <div class="legend" id="legend"></div>
       <aside class="route-panel" id="route-panel" aria-label="おすすめ観光ルート"></aside>
+
+      <button id="feedback-open" class="feedback-fab" type="button" aria-haspopup="dialog">
+        <span class="feedback-fab-icon" aria-hidden="true">&#9998;</span>
+        <span>&#12415;&#12435;&#12394;&#12398;&#22768;</span>
+      </button>
     </section>
   </main>
 
@@ -62,6 +67,78 @@
     <div id="spot-panel-body" class="spot-panel-body"></div>
   </div>
 
-  <script src="main.js?v=20260721-2"></script>
+  <div id="feedback-dialog" class="feedback-dialog is-hidden" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
+    <div class="feedback-backdrop" data-feedback-close></div>
+    <section class="feedback-sheet">
+      <header class="feedback-header">
+        <div>
+          <p class="feedback-kicker">&#34892;&#30000;&#12398;&#35251;&#20809;&#12510;&#12483;&#12503;&#12434;&#32946;&#12390;&#12427;</p>
+          <h2 id="feedback-title">&#12354;&#12394;&#12383;&#12398;&#22768;&#12434;&#25945;&#12360;&#12390;&#12367;&#12384;&#12373;&#12356;</h2>
+        </div>
+        <button id="feedback-close" class="feedback-close" type="button" aria-label="&#12501;&#12457;&#12540;&#12512;&#12434;&#38281;&#12376;&#12427;">&times;</button>
+      </header>
+
+      <form id="feedback-form" class="feedback-form">
+        <p class="feedback-intro">&#25237;&#31295;&#12399;&#12377;&#12368;&#12395;&#20844;&#38283;&#12373;&#12428;&#12378;&#12289;&#20869;&#23481;&#12434;&#30906;&#35469;&#12375;&#12383;&#19978;&#12391;&#22320;&#22259;&#12398;&#25913;&#21892;&#12395;&#27963;&#29992;&#12375;&#12414;&#12377;&#12290;</p>
+
+        <label class="feedback-field">
+          <span>&#12473;&#12509;&#12483;&#12488;&#21517; <small>&#24517;&#38920;</small></span>
+          <input id="feedback-spot" name="spot" type="text" maxlength="80" required placeholder="&#20363;&#65306;&#21476;&#20195;&#34030;&#12398;&#37324;">
+        </label>
+
+        <div class="feedback-field-row">
+          <label class="feedback-field">
+            <span>&#35370;&#21839;&#26178;&#26399;</span>
+            <input id="feedback-visit-month" name="visitMonth" type="month">
+          </label>
+          <label class="feedback-field">
+            <span>&#24773;&#22577;&#12398;&#31278;&#39006; <small>&#24517;&#38920;</small></span>
+            <select id="feedback-category" name="category" required>
+              <option value="">&#36984;&#25246;&#12375;&#12390;&#12367;&#12384;&#12373;&#12356;</option>
+              <option>&#12362;&#12377;&#12377;&#12417;&#12509;&#12452;&#12531;&#12488;</option>
+              <option>&#23395;&#31680;&#24773;&#22577;</option>
+              <option>&#28151;&#38609;&#24773;&#22577;</option>
+              <option>&#12450;&#12463;&#12475;&#12473;&#12539;&#31227;&#21205;</option>
+              <option>&#12496;&#12522;&#12450;&#12501;&#12522;&#12540;</option>
+              <option>&#24773;&#22577;&#12398;&#20462;&#27491;</option>
+              <option>&#26032;&#12375;&#12356;&#12473;&#12509;&#12483;&#12488;&#25552;&#26696;</option>
+              <option>&#12381;&#12398;&#20182;</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="feedback-field">
+          <span>&#21033;&#29992;&#32773;&#12398;&#22768; <small>&#24517;&#38920;</small></span>
+          <textarea id="feedback-message" name="message" rows="4" minlength="5" maxlength="240" required placeholder="&#20363;&#65306;7&#26376;&#12399;&#21320;&#21069;&#20013;&#12398;&#26041;&#12364;&#34030;&#12398;&#33457;&#12434;&#35211;&#12420;&#12377;&#12363;&#12387;&#12383;&#12391;&#12377;&#12290;"></textarea>
+          <span class="feedback-count"><output id="feedback-count">0</output> / 240</span>
+        </label>
+
+        <label class="feedback-field">
+          <span>&#12491;&#12483;&#12463;&#12493;&#12540;&#12512; <em>&#20219;&#24847;</em></span>
+          <input id="feedback-nickname" name="nickname" type="text" maxlength="30" placeholder="&#26410;&#35352;&#20837;&#12391;&#21311;&#21517;&#12395;&#12394;&#12426;&#12414;&#12377;">
+        </label>
+
+        <label class="feedback-consent">
+          <input id="feedback-consent" name="consent" type="checkbox" required>
+          <span>&#20491;&#20154;&#24773;&#22577;&#12434;&#21547;&#12414;&#12394;&#12356;&#20869;&#23481;&#12391;&#12354;&#12426;&#12289;&#30906;&#35469;&#24460;&#12395;&#35251;&#20809;&#12510;&#12483;&#12503;&#12408;&#25522;&#36617;&#12373;&#12428;&#12427;&#22580;&#21512;&#12364;&#12354;&#12427;&#12371;&#12392;&#12395;&#21516;&#24847;&#12375;&#12414;&#12377;&#12290;</span>
+        </label>
+
+        <p class="feedback-demo-note">&#29694;&#22312;&#12399;&#12487;&#12514;&#29256;&#12391;&#12377;&#12290;&#36865;&#20449;&#20869;&#23481;&#12399;&#12371;&#12398;&#31471;&#26411;&#12395;&#12398;&#12415;&#20445;&#23384;&#12373;&#12428;&#12414;&#12377;&#12290;</p>
+        <div class="feedback-actions">
+          <button class="feedback-cancel" type="button" data-feedback-close>&#12461;&#12515;&#12531;&#12475;&#12523;</button>
+          <button class="feedback-submit" type="submit">&#22768;&#12434;&#36865;&#12427;</button>
+        </div>
+      </form>
+
+      <div id="feedback-success" class="feedback-success" hidden>
+        <span class="feedback-success-mark" aria-hidden="true">&#10003;</span>
+        <h2>&#12354;&#12426;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12375;&#12383;</h2>
+        <p>&#12362;&#23492;&#12379;&#12356;&#12383;&#12384;&#12356;&#12383;&#22768;&#12434;&#12289;&#22320;&#22259;&#12398;&#25913;&#21892;&#12395;&#27963;&#29992;&#12375;&#12414;&#12377;&#12290;</p>
+        <button id="feedback-done" class="feedback-submit" type="button">&#22320;&#22259;&#12395;&#25147;&#12427;</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="main.js?v=20260917-1"></script>
 </body>
 </html>
