@@ -41,6 +41,20 @@ Web地図は観光地の位置関係を把握しやすい一方、現地の雰�
 - 斜め視点のカメラ移動によるルートストーリーモード
 - スマートフォンでのカテゴリ一覧・ルートパネルの開閉
 - 古地図・紙地図を意識した配色とUI
+- 管理画面でのカード編集、オンライン下書き、確認後の公開、直前の公開の取り消し
+- 写真の非公開保存、公開候補選択、公開用コピー、使用状況確認、安全条件付きの削除・整理
+- GeoJSONの点・線・面の取り込み、編集、未公開地図プレビュー（追加図形のオンライン公開は未対応）
+
+### 管理画面と運用
+
+- [管理画面](https://furuhashilab.github.io/2026gsc_ShotaArakawa/editor.html)
+- [オンライン下書き・公開](docs/online-drafts.md)
+- [写真の公開](docs/photo-publication.md) / [非公開写真の削除](docs/private-photo-deletion.md) / [失敗コピーの整理](docs/failed-photo-cleanup.md)
+- [サーバー設定・セキュリティ・テスト](docs/server-setup.md)
+
+通常の利用者マップは公開済み情報のみを読み込みます。管理ページ自体は公開されていますが、オンライン保存・公開・非公開写真の操作はSupabaseの認証と権限で管理者に限定します。カード情報の更新にはGitHubへの再プッシュは不要です。
+
+利用者の声を送るフォームは端末内保存のデモで、Google Formsなどへの送信は未実装です。
 
 ## 2025年ゼミ論からの発展
 
@@ -66,6 +80,7 @@ Web地図は観光地の位置関係を把握しやすい一方、現地の雰�
 - GeoJSON
 - Google Maps URL連携
 - GitHub Pages
+- Supabase Auth / PostgreSQL / Storage / Edge Functions
 
 
 
@@ -98,13 +113,20 @@ Web地図は観光地の位置関係を把握しやすい一方、現地の雰�
 index.html                    現行版の画面構造
 style.css                     現行版のレイアウトとデザイン
 main.js                       地図、スポット、ルート、詳細カードの処理
+editor.html                   管理者のカード編集・写真管理
+geojson.html                  点・線・面の取り込みと編集（未公開）
+data/spots.json               固定ID付きの元スポットデータ
+js/                           編集・公開・写真管理などの処理
+css/                          管理画面・プレビューのスタイル
+supabase/                     SQL移行とサーバー関数のソース
+tests/                        自動テスト
 gyoda-style.json              MapLibre用ベクトル地図スタイル
 gyoda_geojson.geojson         行田市境界データ
 tourism-areas.geojson         観光エリアとラベル
 tourism-area-glow.geojson     観光エリアのグラデーション用ポイント
 assets/                       現行版の画像素材
 docs/images/                  README用画像
-css/ data/ js/ legacy/        2025年ゼミ論版の実装資料
+legacy/                       2025年ゼミ論版の実装資料
 map/ resources/ styles/       2025年ゼミ論版の地図関連資料
 ```
 

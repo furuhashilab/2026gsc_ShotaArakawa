@@ -11,3 +11,23 @@ Thumbs.db
 
 # secrets
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# local dependencies, credentials and test output
+node_modules/
+.supabase/
+supabase/.temp/
+playwright/.auth/
+storage-state*.json
+test-artifacts/
+playwright-report/
+test-results/

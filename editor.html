@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>スポット編集 | 行田市観光マップ管理</title>
+  <link rel="stylesheet" href="style.css?v=20261017-2">
+  <link rel="stylesheet" href="css/editor.css?v=20261018-1">
+  <link rel="stylesheet" href="css/cloud-drafts.css?v=20261029-1">
+  <link rel="stylesheet" href="css/private-photos.css?v=20261030-4">
+  <script src="js/spot-data.js?v=20261017-2" defer></script>
+  <script src="js/spot-card.js?v=20261017-2" defer></script>
+  <script src="js/geojson-data.js?v=20261017-3" defer></script>
+  <script src="js/map-preview.js?v=20261018-2" defer></script>
+  <script src="js/publication-data.js?v=20261029-1" defer></script>
+  <script src="js/publication.js?v=20261030-2" defer></script>
+  <script src="js/private-photos.js?v=20261030-5" defer></script>
+  <script src="js/cloud-drafts.js?v=20261030-1" defer></script>
+  <script src="js/editor.js?v=20261029-1" defer></script>
+</head>
+<body class="editor-page">
+  <header class="editor-header">
+    <div><a class="map-link" href="index.html">行田市観光マップ</a><h1>マップ管理</h1></div>
+    <span class="editor-badge"><span>管理画面</span><span>下書き保存と公開は別操作</span></span>
+  </header>
+  <nav class="management-nav" aria-label="マップ管理メニュー">
+    <a href="editor.html" aria-current="page">スポット編集</a>
+    <a href="geojson.html">新規追加（GeoJSON）</a>
+  </nav>
+  <main class="editor-shell">
+    <section class="cloud-drafts" aria-labelledby="cloud-heading">
+      <h2 id="cloud-heading">オンライン下書き <small>カード情報6項目 / 未公開</small></h2>
+      <form id="cloud-login">
+        <label>メールアドレス<input id="cloud-email" type="email" autocomplete="username" required></label>
+        <label>パスワード<input id="cloud-password" type="password" autocomplete="current-password" required></label>
+        <button id="cloud-signin" type="submit" disabled>管理者ログイン</button>
+      </form>
+      <div id="cloud-account" hidden>
+        <span id="cloud-user"></span>
+        <button id="cloud-load" type="button">選択中の下書きを読み込む</button>
+        <button id="cloud-save" type="button">選択中の下書きを保存</button>
+        <button id="cloud-signout" type="button">ログアウト</button>
+      </div>
+      <p id="cloud-status" role="status" aria-live="polite">未ログイン</p>
+      <div id="publication-actions" hidden>
+        <button id="publication-review" type="button">公開内容を確認</button>
+        <button id="publication-undo" type="button">直前の公開を取り消す</button>
+        <a href="index.html" target="_blank" rel="noopener">利用者マップを確認</a>
+      </div>
+    </section>
+    <div class="editor-toolbar">
+      <span id="save-state" role="status">読み込み中</span>
+      <div class="editor-actions">
+        <button id="open-map-preview" type="button" disabled>地図でプレビュー</button>
+        <button id="restore-draft" type="button" disabled>端末内の下書きを復元</button>
+        <button id="import-data" type="button" disabled>ファイルを読み込む</button>
+        <input id="import-file" type="file" accept=".json,application/json" hidden>
+        <button id="save-draft" type="button" disabled>端末内に下書きを保存</button>
+        <button id="export-data" class="primary" type="button" disabled>JSONを書き出す</button>
+      </div>
+    </div>
+    <p id="editor-status" class="editor-status" role="status" aria-live="polite"></p>
+    <p id="editor-error" class="editor-error" role="alert" hidden></p>
+    <div class="editor-layout" id="editor-layout" hidden>
+      <aside class="editor-sidebar" aria-label="スポット選択">
+        <h2>スポット <span id="spot-total"></span></h2>
+        <label for="spot-select">編集するスポット</label>
+        <select id="spot-select"></select>
+        <p id="spot-category" class="spot-category"></p>
+        <dl class="spot-identity"><dt>固定ID</dt><dd id="spot-id"></dd></dl>
+      </aside>
+      <div class="mobile-editor-tabs" role="group" aria-label="編集表示">
+        <button id="tab-edit" type="button" aria-pressed="true">入力</button>
+        <button id="tab-preview" type="button" aria-pressed="false">プレビュー</button>
+      </div>
+      <section class="editor-input" aria-labelledby="input-heading">
+        <div class="section-heading"><h2 id="input-heading">カード情報</h2><button id="reset-spot" type="button">このスポットを元に戻す</button></div>
+        <form id="spot-form" novalidate>
+          <label for="edit-name">スポット名 <span class="required">必須</span></label>
+          <input id="edit-name" name="name" type="text" maxlength="100" required aria-describedby="error-name">
+          <p id="error-name" class="field-error"></p>
+          <label for="edit-desc">説明文</label>
+          <textarea id="edit-desc" name="desc" rows="6" maxlength="3000" aria-describedby="error-desc"></textarea>
+          <p id="error-desc" class="field-error"></p>
+          <label for="edit-photo">写真URL</label>
+          <input id="edit-photo" name="photo" type="text" inputmode="url" maxlength="2000" aria-describedby="error-photo">
+          <p id="error-photo" class="field-error"></p>
+          <label for="edit-youtube2">ショート動画URL</label>
+          <input id="edit-youtube2" name="youtube2" type="url" maxlength="2000" aria-describedby="error-youtube2">
+          <p id="error-youtube2" class="field-error"></p>
+          <label for="edit-youtube">Vlog URL</label>
+          <input id="edit-youtube" name="youtube" type="url" maxlength="2000" aria-describedby="error-youtube">
+          <p id="error-youtube" class="field-error"></p>
+          <label for="edit-homepage">公式サイトURL</label>
+          <input id="edit-homepage" name="homepage" type="url" maxlength="2000" aria-describedby="error-homepage">
+          <p id="error-homepage" class="field-error"></p>
+        </form>
+        <section class="private-photos" aria-labelledby="private-photo-heading">
+          <h3 id="private-photo-heading">非公開の写真<span class="private-photo-badge">公開前の保管</span></h3>
+          <p id="private-photo-target"></p>
+          <label for="private-photo-file">写真を選ぶ（JPEG・PNG・WebP / 20MB以内）</label>
+          <input id="private-photo-file" type="file" accept="image/jpeg,image/png,image/webp" disabled>
+          <div class="private-photo-actions">
+            <button id="private-photo-upload" type="button" disabled>非公開で保存</button>
+            <button id="private-photo-refresh" type="button" disabled>保存済み写真を取得</button>
+          </div>
+          <label for="private-photo-list">このスポットの非公開写真</label>
+          <select id="private-photo-list" disabled><option value="">写真を選択</option></select>
+          <div class="private-photo-actions">
+            <button id="private-photo-more" type="button" hidden>さらに取得</button>
+            <button id="private-photo-clear" type="button" disabled>プレビューを閉じる</button>
+            <button id="private-photo-choose" type="button" disabled>この写真を公開候補にする</button>
+            <button id="private-photo-use-url" type="button" disabled>下書きの写真URLを使う</button>
+          </div>
+          <p id="private-photo-status" role="status" aria-live="polite">管理者ログインが必要です。</p>
+          <div class="private-photo-view"><img id="private-photo-image" alt="非公開写真のプレビュー" hidden></div>
+          <h4>写真の使用状況</h4>
+          <div class="private-photo-actions">
+            <button id="photo-inventory-refresh" type="button" disabled>使用状況を取得</button>
+            <button id="photo-inventory-more" type="button" hidden>次の50件</button>
+          </div>
+          <p id="photo-inventory-status" role="status" aria-live="polite">未取得</p>
+          <ul id="photo-inventory-list" class="photo-inventory-list"></ul>
+        </section>
+      </section>
+      <section class="editor-preview" aria-labelledby="preview-heading">
+        <div class="section-heading"><h2 id="preview-heading">カードプレビュー</h2><span class="preview-label">未公開</span></div>
+        <div class="preview-card"><div class="spot-panel-header"><div class="spot-panel-title">スポット詳細</div></div><div id="card-preview" class="spot-panel-body"></div></div>
+        <p id="media-warning" role="status"></p>
+      </section>
+    </div>
+  </main>
+  <dialog id="publication-dialog" aria-labelledby="publication-title" aria-describedby="publication-note">
+    <h2 id="publication-title"></h2>
+    <p id="publication-target"></p>
+    <p id="publication-note"></p>
+    <div class="publication-comparison">
+      <table><thead><tr><th scope="col">項目</th><th scope="col">現在の公開内容</th><th scope="col">反映する内容</th></tr></thead><tbody id="publication-diff"></tbody></table>
+    </div>
+    <div id="publication-card" class="spot-panel-body"></div>
+    <div class="publication-buttons">
+      <button id="publication-cancel" type="button">キャンセル</button>
+      <button id="publication-confirm" type="button" class="primary">この内容を公開する</button>
+    </div>
+  </dialog>
+  <dialog id="photo-delete-dialog" aria-labelledby="photo-delete-title" aria-describedby="photo-delete-note">
+    <h2 id="photo-delete-title">非公開写真の削除</h2>
+    <p id="photo-delete-target"></p>
+    <img id="photo-delete-image" alt="削除対象の非公開写真" hidden>
+    <p id="photo-delete-note">この写真は元に戻せません。削除を開始した写真は公開候補に指定できなくなります。</p>
+    <label class="photo-delete-ack"><input id="photo-delete-ack" type="checkbox">この写真が不要で、削除を取り消せないことを確認しました</label>
+    <p id="photo-delete-status" role="status" aria-live="polite"></p>
+    <div class="private-photo-actions">
+      <button id="photo-delete-cancel" type="button">キャンセル</button>
+      <button id="photo-delete-confirm" type="button" disabled>この写真を削除する</button>
+    </div>
+  </dialog>
+</body>
+</html>

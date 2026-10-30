@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新規追加 | 行田市観光マップ管理</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="css/editor.css?v=20261018-1">
+  <link rel="stylesheet" href="css/geojson.css?v=20261017-3">
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js" defer></script>
+  <script src="js/geojson-data.js?v=20261017-3" defer></script>
+  <script src="js/spot-data.js?v=20261017-2" defer></script>
+  <script src="js/map-preview.js?v=20261018-2" defer></script>
+  <script src="js/geojson-editor.js?v=20261018-2" defer></script>
+</head>
+<body class="editor-page geojson-page">
+  <header class="editor-header">
+    <div><a class="map-link" href="index.html">行田市観光マップ</a><h1>マップ管理</h1></div>
+    <span class="editor-badge"><span>試作版</span><span>公開サイトへの反映なし</span></span>
+  </header>
+  <nav class="management-nav" aria-label="マップ管理メニュー">
+    <a href="editor.html">スポット編集</a>
+    <a href="geojson.html" aria-current="page">新規追加（GeoJSON）</a>
+  </nav>
+  <main class="geo-shell">
+    <div class="editor-toolbar">
+      <span id="geo-save-state" role="status">未保存の変更なし</span>
+      <div class="editor-actions">
+        <button id="open-map-preview" type="button">地図でプレビュー</button>
+        <button type="button" id="geo-restore">下書きを復元</button>
+        <button type="button" id="geo-save">下書きを保存</button>
+        <button type="button" class="primary" id="geo-export" disabled>GeoJSONを書き出す</button>
+      </div>
+    </div>
+    <p id="geo-status" class="editor-status" role="status" aria-live="polite"></p>
+    <p id="geo-error" class="editor-error" role="alert" hidden></p>
+    <div class="geo-layout">
+      <section class="geo-import" aria-labelledby="import-title">
+        <h2 id="import-title">ファイルを読み込む</h2>
+        <label for="geo-file">GeoJSON / JSON（5MBまで）</label>
+        <input id="geo-file" type="file" accept=".geojson,.json,application/geo+json,application/json">
+        <p id="geo-file-name"></p>
+        <div id="geo-pending" hidden>
+          <strong id="geo-counts"></strong>
+          <fieldset id="geo-mapping">
+            <label for="geo-name-key">名称に使う属性</label><select id="geo-name-key"></select>
+            <label for="geo-desc-key">説明に使う属性</label><select id="geo-desc-key"></select>
+            <label for="geo-category">カテゴリ</label><select id="geo-category"></select>
+            <label for="geo-color">表示色</label><input type="color" id="geo-color" value="#b65478">
+          </fieldset>
+          <div class="geo-sample"><h3>選択中の地物</h3><p id="geo-sample-name"></p><p id="geo-sample-desc"></p></div>
+          <div class="geo-pending-actions"><button class="primary" id="geo-add" type="button">確認して追加</button><button id="geo-cancel" type="button">キャンセル</button></div>
+        </div>
+      </section>
+      <section class="geo-map-section" aria-labelledby="map-title">
+        <div class="section-heading"><h2 id="map-title">地図プレビュー</h2><button id="geo-fit" type="button">全体を表示</button></div>
+        <div class="geo-map-wrap"><div id="geo-map"></div><p id="geo-map-status" role="status">地図を読み込み中</p></div>
+        <div class="geo-map-key"><span><i class="pending-key"></i>確認待ち</span><span><i class="added-key"></i>追加済み</span></div>
+      </section>
+      <section class="geo-added" aria-labelledby="added-title">
+        <h2 id="added-title">追加済み <span id="geo-total">0件</span></h2>
+        <p id="geo-empty">追加済みの地物はありません。</p>
+        <div id="geo-detail" hidden>
+          <label for="geo-selected">地物</label><select id="geo-selected"></select>
+          <p id="geo-kind"></p><p class="geo-id" id="geo-id"></p>
+          <form id="geo-detail-form">
+            <label for="geo-edit-name">名称</label><input id="geo-edit-name" type="text" maxlength="100" required>
+            <label for="geo-edit-desc">説明</label><textarea id="geo-edit-desc" rows="4" maxlength="3000"></textarea>
+            <label for="geo-edit-category">カテゴリ</label><select id="geo-edit-category"></select>
+            <label for="geo-edit-color">表示色</label><input id="geo-edit-color" type="color">
+          </form>
+          <button id="geo-remove" type="button">この地物を削除</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

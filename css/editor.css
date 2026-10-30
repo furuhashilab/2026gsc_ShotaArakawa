@@ -1,0 +1,81 @@
+body.editor-page { margin: 0; height: auto; min-height: 100vh; overflow: auto; background: #f5f7f6; color: #263b34; font-family: system-ui, sans-serif; }
+.editor-page * { box-sizing: border-box; letter-spacing: 0; }
+.editor-page [hidden] { display: none !important; }
+.editor-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 28px; background: #fff; border-bottom: 1px solid #d7dfdb; border-top: 4px solid #ad5879; }
+.editor-header h1 { margin: 6px 0 0; font-size: 23px; line-height: 1.4; }
+.map-link { color: #366a58; font-size: 13px; text-decoration: none; }
+.editor-badge { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 8px; color: #6e485c; font-size: 13px; text-align: right; }
+.editor-badge span { white-space: nowrap; }
+.management-nav { display: flex; gap: 8px; padding: 0 28px; background: #fff; border-bottom: 1px solid #d7dfdb; }
+.management-nav a { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 18px; border-bottom: 3px solid transparent; color: #61746a; font-size: 14px; text-decoration: none; text-align: center; }
+.management-nav a:hover { color: #284e40; background: #f0f6f3; }
+.management-nav a[aria-current=page] { color: #245847; border-bottom-color: #2f6f5e; font-weight: 700; background: #edf4f0; }
+.editor-shell { max-width: 1440px; margin: auto; padding: 0 28px 36px; }
+.editor-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 0; border-bottom: 1px solid #d7dfdb; }
+#save-state { font-size: 13px; min-width: 100px; }
+.editor-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.editor-page button { min-height: 38px; padding: 8px 12px; border: 1px solid #c4d0ca; border-radius: 5px; background: #fff; color: #284e40; font: inherit; font-size: 13px; cursor: pointer; }
+.editor-page button:hover:not(:disabled) { background: #edf4f0; }
+.editor-page button:disabled { opacity: .5; cursor: default; }
+.editor-page button.primary { background: #2f6f5e; color: #fff; border-color: #2f6f5e; }
+.editor-page button.primary:hover:not(:disabled) { background: #245847; }
+.editor-page :focus-visible { outline: 3px solid #54917f; outline-offset: 3px; }
+.editor-status { min-height: 20px; margin: 14px 0; font-size: 13px; color: #426455; }
+.editor-error { color: #a3293a; background: #fff0f2; padding: 12px; border-left: 3px solid #a3293a; overflow-wrap: anywhere; }
+.editor-layout { display: grid; grid-template-columns: 210px minmax(260px, 1fr) 340px; align-items: start; gap: 28px; }
+.editor-page h2 { margin: 0; font-size: 16px; font-weight: 650; }
+.editor-sidebar { padding-top: 6px; min-width: 0; }
+.editor-sidebar h2 { margin-bottom: 22px; }
+#spot-total { font-size: 12px; margin-left: 6px; color: #718077; }
+.editor-page label { display: block; margin: 0 0 7px; font-size: 13px; font-weight: 600; }
+.editor-page input:not([type=file]), .editor-page textarea, .editor-page select { width: 100%; min-width: 0; border: 1px solid #b8c8be; border-radius: 4px; padding: 10px; background: #fff; color: #293c34; font: inherit; font-size: 14px; line-height: 1.5; }
+.editor-page textarea { resize: vertical; min-height: 120px; }
+.editor-page input[aria-invalid=true] { border-color: #b33346; }
+.spot-category { font-size: 12px; border-left: 4px solid var(--category-color); padding-left: 8px; }
+.spot-identity { display: flex; gap: 12px; padding-top: 14px; border-top: 1px solid #d7dfdb; font-size: 12px; color: #738277; }
+.spot-identity dd { margin: 0; }
+.editor-input { min-width: 0; border-left: 1px solid #d7dfdb; padding-left: 28px; }
+.section-heading { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
+.section-heading button { padding: 4px 7px; font-size: 11px; }
+.required, .preview-label { font-size: 11px; font-weight: 400; color: #a64d6e; margin-left: 7px; }
+.field-error { min-height: 18px; margin: 4px 0 16px; font-size: 12px; color: #aa2c40; }
+.editor-preview { min-width: 0; position: sticky; top: 18px; }
+.preview-card { width: 100%; max-width: 340px; border: 1px solid #b7a383; border-radius: 7px; background: rgba(247,235,199,.97); box-shadow: 0 5px 16px #203c3010; overflow: hidden; color: #332b1f; }
+.editor-preview .spot-panel-body { max-height: 65vh; overflow: auto; }
+.editor-preview .popup-img { max-width: 100%; }
+.editor-preview .popup-links a { overflow-wrap: anywhere; }
+.editor-preview button.google-route-btn { background: #2f6f5e; color: #fff; }
+.editor-preview button.spot-feedback-btn { background: #b65478; color: #fff; }
+#media-warning { color: #a3293a; font-size: 12px; }
+.mobile-editor-tabs { display: none; }
+@media (max-width: 1100px) {
+  .editor-layout { grid-template-columns: minmax(260px, 1fr) 320px; gap: 20px; }
+  .editor-sidebar { grid-column: 1 / -1; display: grid; grid-template-columns: 110px minmax(0, 1fr) 140px; align-items: center; gap: 10px; }
+  .editor-sidebar h2 { margin: 0; }
+  .editor-sidebar label { display: none; }
+  .spot-identity { grid-column: 2; margin: 0; padding: 0; border: none; }
+  .spot-category { margin: 0; }
+  .editor-input { border: 0; padding: 0; }
+  .editor-toolbar { align-items: flex-start; }
+}
+@media (max-width: 760px) {
+  .management-nav { padding: 0 16px; gap: 0; }
+  .management-nav a { flex: 1; min-width: 0; padding: 12px 6px; font-size: 13px; overflow-wrap: anywhere; }
+  .editor-header { padding: 16px; align-items: flex-start; }
+  .editor-header h1 { font-size: 20px; }
+  .editor-badge { max-width: 150px; font-size: 11px; }
+  .editor-shell { padding: 0 16px 28px; }
+  .editor-toolbar { flex-direction: column; }
+  .editor-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .editor-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .editor-sidebar { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .spot-identity { grid-column: auto; }
+  .mobile-editor-tabs { display: grid; grid-template-columns: 1fr 1fr; }
+  .mobile-editor-tabs button { border-radius: 0; }
+  .editor-page .mobile-editor-tabs button[aria-pressed=true] { background: #2f6f5e; color: #fff; }
+  .editor-preview { display: none; position: static; }
+  .editor-layout.show-preview .editor-input { display: none; }
+  .editor-layout.show-preview .editor-preview { display: block; }
+  .preview-card { margin: 0 auto; }
+  .editor-preview .spot-panel-body { max-height: none; }
+}

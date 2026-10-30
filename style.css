@@ -1075,6 +1075,18 @@ body.route-story-open .map-header {
   fill: #82bd70;
 }
 
+.map-load-error {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  right: 20px;
+  z-index: 30;
+  padding: 16px;
+  background: #fff0f2;
+  border: 1px solid #a3293a;
+  color: #a3293a;
+}
+
 .popup-img {
   display: block;
   width: 100%;
@@ -1083,6 +1095,7 @@ body.route-story-open .map-header {
 }
 
 .popup-title {
+  overflow-wrap: anywhere;
   margin-bottom: 5px;
   font-size: 18px;
   font-weight: 700;
@@ -1091,6 +1104,8 @@ body.route-story-open .map-header {
 }
 
 .popup-desc {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
   margin: 7px 0 10px;
   font-size: 13px;
   line-height: 1.6;

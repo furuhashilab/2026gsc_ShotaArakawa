@@ -1,0 +1,177 @@
+[
+  {
+    "id": "spot-001",
+    "name": "古代蓮の里",
+    "lat": 36.132689,
+    "lon": 139.500927,
+    "category": "sightseeing",
+    "color": "#22c55e",
+    "photo": "https://github.com/user-attachments/assets/203a0e5d-ae84-4553-93fe-fe442edb7c90",
+    "youtube": "https://youtu.be/F4jcAJ014tU?si=7B2PC2OLNnX6_edu",
+    "youtube2": "https://youtube.com/shorts/XfUT41sUD_4?feature=share",
+    "homepage": "https://www.gyoda-kankoukyoukai.jp/lotus.html"
+  },
+  {
+    "id": "spot-002",
+    "name": "さきたま古墳公園",
+    "lat": 36.12800159,
+    "lon": 139.4799882,
+    "category": "sightseeing",
+    "color": "#22c55e",
+    "photo": "https://github.com/user-attachments/assets/22a094e1-de08-4899-9c70-b3c8c10418d5",
+    "youtube2": "https://youtube.com/shorts/Ys61rD0B9cM?si=Q80cr9QZ9f2FQkaD",
+    "homepage": "https://www.gyoda-kankoukyoukai.jp/spot/671"
+  },
+  {
+    "id": "spot-003",
+    "name": "行田市郷土博物館・忍城",
+    "lat": 36.13791006,
+    "lon": 139.453343,
+    "category": "sightseeing",
+    "color": "#22c55e",
+    "photo": "https://github.com/user-attachments/assets/20e5b0c6-9aa5-44d4-abd8-cbdc5765d3ee",
+    "youtube2": "https://youtube.com/shorts/skSTB2O5SkI?feature=share",
+    "homepage": "https://www.gyoda-kankoukyoukai.jp/spot/973",
+    "desc": "行田市の歴史を学ぶことができる博物館。そのまま忍城の中も見学できます！"
+  },
+  {
+    "id": "spot-004",
+    "name": "JR行田駅",
+    "lat": 36.11381256998107,
+    "lon": 139.43219535581972,
+    "category": "station",
+    "color": "#2563eb",
+    "desc": "JR高崎線の駅。大宮まで約40分、上野・東京・新宿・渋谷などの都内主要駅から乗り換えなしでアクセス可能！"
+  },
+  {
+    "id": "spot-005",
+    "name": "行田市駅",
+    "lat": 36.143572,
+    "lon": 139.459108,
+    "category": "station",
+    "color": "#2563eb",
+    "homepage": "https://www.chichibu-railway.co.jp/station/06_gyoda.html",
+    "desc": "秩父鉄道の駅。忍城や市街地散策の最寄り駅として利用できます。"
+  },
+  {
+    "id": "spot-006",
+    "name": "水城公園",
+    "lat": 36.13483418826252,
+    "lon": 139.45874369551495,
+    "photo": "https://github.com/user-attachments/assets/07db42d8-4bb5-4adf-87a9-c297da421e31",
+    "category": "sightseeing",
+    "color": "#22c55e",
+    "desc": "忍城の名残の堀や沼を基に整備した公園。四季の変化が魅力で、憩いの場となっています。お散歩にオススメ！"
+  },
+  {
+    "id": "spot-007",
+    "name": "行田八幡神社",
+    "lat": 36.13906,
+    "lon": 139.46147,
+    "category": "sightseeing",
+    "photo": "https://github.com/user-attachments/assets/3db6cd27-b29f-468d-a181-a3f6afd092eb",
+    "color": "#22c55e",
+    "homepage": "https://www.gyoda-kankoukyoukai.jp/spot/1004",
+    "desc": "「封じの宮」と称され、虫封じや難病封じお年寄りの、ぼけ封じなどの封じ祈願が継承されています。花手水を鑑賞できるかも‼"
+  },
+  {
+    "id": "spot-008",
+    "name": "足袋とくらしの博物館",
+    "lat": 36.14087,
+    "lon": 139.4581,
+    "category": "sightseeing",
+    "photo": "https://github.com/user-attachments/assets/ae9c1ee6-0556-4d4f-aded-4680fdd0ac46",
+    "color": "#22c55e",
+    "homepage": "https://www.gyoda-kankoukyoukai.jp/spot/733",
+    "desc": "元々は牧野本店という足袋工場。展示物や足袋づくりの実演を見学可能‼My足袋づくり体験も‼（要予約）"
+  },
+  {
+    "id": "spot-009",
+    "name": "行田・湯本天然温泉 茂美の湯",
+    "lat": 36.12744,
+    "lon": 139.47235,
+    "category": "onsen",
+    "photo": "https://github.com/user-attachments/assets/803455aa-7948-42c6-a536-0923c4631ad4",
+    "color": "#FFEC50",
+    "homepage": "https://mominoyu.com/"
+  },
+  {
+    "id": "spot-010",
+    "name": "前玉(さきたま)神社",
+    "lat": 36.12336088024693,
+    "lon": 139.47963882213634,
+    "category": "sightseeing",
+    "color": "#22c55e",
+    "photo": "https://github.com/user-attachments/assets/5121549f-5275-4281-8a67-70ecdb09758e",
+    "youtube2": "https://youtube.com/shorts/aWfyMtGJwGM?si=SQ0PCV78lAXAI4vR"
+  },
+  {
+    "id": "spot-011",
+    "name": "かねつき堂",
+    "lat": 36.13895781856619,
+    "lon": 139.45167731963446,
+    "category": "food",
+    "desc": "行田名物のゼリーフライとフライが有名なお店‼ 月曜定休、火～日11:00-17:00",
+    "photo": "https://github.com/user-attachments/assets/9047c74b-6564-4074-949a-3ba6e429cac3",
+    "color": "#ef4444"
+  },
+  {
+    "id": "spot-012",
+    "name": "金澤製菓",
+    "lat": 36.12414197823914,
+    "lon": 139.48043697306653,
+    "photo": "https://github.com/user-attachments/assets/0c6379ff-072f-42db-a421-1d4692592ce7",
+    "category": "souvenir",
+    "color": "#F79428"
+  },
+  {
+    "id": "spot-013",
+    "name": "十万石ふくさや 行田本店",
+    "lat": 36.141301805501094,
+    "lon": 139.46101358575336,
+    "category": "souvenir",
+    "color": "#F79428"
+  },
+  {
+    "id": "spot-014",
+    "name": "行田天然温泉 古代蓮物語",
+    "lat": 36.13592755579241,
+    "lon": 139.46549395962916,
+    "category": "onsen",
+    "color": "#FFEC50"
+  },
+  {
+    "id": "spot-015",
+    "name": "城西ラーメン",
+    "lat": 36.13602502473986,
+    "lon": 139.4463881848658,
+    "category": "food",
+    "color": "#ef4444"
+  },
+  {
+    "id": "spot-016",
+    "name": "フライ・焼きそばの店 山下",
+    "lat": 36.11590685683875,
+    "lon": 139.46001279507158,
+    "category": "food",
+    "color": "#ef4444"
+  },
+  {
+    "id": "spot-017",
+    "name": "イサミ足袋本舗",
+    "lat": 36.13735347548533,
+    "lon": 139.46291681665127,
+    "category": "souvenir",
+    "photo": "https://github.com/user-attachments/assets/e3dacf0d-de16-44ec-9ab0-55d1fe112bbf",
+    "color": "#F79428"
+  },
+  {
+    "id": "spot-018",
+    "name": "ヴェールカフェ",
+    "lat": 36.13444420976873,
+    "lon": 139.45973182688454,
+    "photo": "https://github.com/user-attachments/assets/0ed87dce-55af-4f68-8504-a827ab37c1e7",
+    "category": "food",
+    "color": "#ef4444"
+  }
+]

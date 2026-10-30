@@ -1,0 +1,28 @@
+.private-photos { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #ccd5d0; }
+.private-photos h3 { margin: 0 0 8px; font-size: 16px; }
+.private-photo-badge { display: inline-block; margin-left: 8px; font-size: 12px; font-weight: normal; color: #695330; }
+#private-photo-target, #private-photo-status { font-size: 13px; overflow-wrap: anywhere; }
+#private-photo-status[data-error="true"] { color: #a52936; }
+.private-photo-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.private-photos input, .private-photos select { width: 100%; box-sizing: border-box; min-width: 0; }
+.private-photos input[type="file"] { font-size: 13px; padding: 8px; }
+.private-photo-view { margin: 12px 0; }
+#private-photo-image { display: block; width: 100%; height: 260px; object-fit: contain; background: #edf1ef; }
+@media (max-width: 760px) { .private-photos button { min-height: 44px; } }
+.photo-inventory-list { list-style: none; padding: 0; margin: 0; }
+.photo-inventory-list li { border-top: 1px solid #ccd5d0; padding: 12px 0; overflow-wrap: anywhere; font-size: 13px; }
+.photo-inventory-list strong { display: block; font-size: 13px; margin-bottom: 6px; }
+.photo-inventory-list p { margin: 4px 0; }
+.photo-inventory-state { color: #245a4a; font-weight: 600; }
+.photo-inventory-state[data-review="true"] { color: #895620; }
+#photo-inventory-status { font-size: 13px; overflow-wrap: anywhere; }
+#photo-inventory-status[data-error="true"] { color: #a52936; }
+#photo-delete-dialog { box-sizing: border-box; width: min(560px, calc(100% - 24px)); max-height: calc(100dvh - 24px); padding: 20px; border: 1px solid #ccd5d0; border-radius: 6px; overflow: auto; }
+#photo-delete-dialog::backdrop { background: #0008; }
+#photo-delete-dialog h2 { font-size: 20px; margin: 0 0 12px; }
+#photo-delete-target, #photo-delete-status { overflow-wrap: anywhere; font-size: 13px; }
+#photo-delete-image { display: block; width: 100%; height: 220px; object-fit: contain; background: #edf1ef; }
+#photo-delete-image[hidden] { display: none; }
+#photo-delete-dialog .photo-delete-ack { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; }
+#photo-delete-ack { flex: 0 0 auto; width: 18px; height: 18px; padding: 0; margin: 3px 0 0; }
+#photo-delete-confirm, #photo-delete-status[data-error="true"] { color: #a52936; }
