@@ -39,89 +39,10 @@ function closeSpotPanel(){
   if (panelBodyEl) panelBodyEl.innerHTML = "";
 }
 
-const feedbackDialogEl = document.getElementById("feedback-dialog");
-const feedbackFormEl = document.getElementById("feedback-form");
-const feedbackSuccessEl = document.getElementById("feedback-success");
-const feedbackSpotEl = document.getElementById("feedback-spot");
-const feedbackMessageEl = document.getElementById("feedback-message");
-const feedbackCountEl = document.getElementById("feedback-count");
-let feedbackReturnFocusEl = null;
-
-function openFeedbackForm(spotName = "") {
-  if (!feedbackDialogEl || !feedbackFormEl || !feedbackSpotEl) return;
-  feedbackReturnFocusEl = document.activeElement;
-  feedbackFormEl.reset();
-  feedbackFormEl.hidden = false;
-  if (feedbackSuccessEl) feedbackSuccessEl.hidden = true;
-  feedbackSpotEl.value = spotName;
-  if (feedbackCountEl) feedbackCountEl.value = 0;
-  feedbackDialogEl.classList.remove("is-hidden");
-  document.body.classList.add("feedback-dialog-open");
-  window.setTimeout(() => (spotName ? feedbackMessageEl : feedbackSpotEl)?.focus(), 0);
-}
-
-function closeFeedbackForm() {
-  if (!feedbackDialogEl) return;
-  feedbackDialogEl.classList.add("is-hidden");
-  document.body.classList.remove("feedback-dialog-open");
-  feedbackReturnFocusEl?.focus?.();
-}
-
-function saveDemoFeedback(entry) {
-  const storageKey = "gyoda-tourist-map-feedback-demo";
-  let savedEntries = [];
-  try {
-    savedEntries = JSON.parse(localStorage.getItem(storageKey) || "[]");
-    if (!Array.isArray(savedEntries)) savedEntries = [];
-  } catch {
-    savedEntries = [];
-  }
-  savedEntries.push(entry);
-  localStorage.setItem(storageKey, JSON.stringify(savedEntries));
-}
-
-document.getElementById("feedback-open")?.addEventListener("click", () => openFeedbackForm());
-document.getElementById("feedback-close")?.addEventListener("click", closeFeedbackForm);
-document.getElementById("feedback-done")?.addEventListener("click", closeFeedbackForm);
-feedbackDialogEl?.querySelectorAll("[data-feedback-close]").forEach((button) => {
-  button.addEventListener("click", closeFeedbackForm);
-});
-
 panelBodyEl?.addEventListener("click", (event) => {
   const button = event.target.closest(".spot-feedback-btn");
   if (!button || !activeSpot) return;
   openFeedbackForm(activeSpot.name);
-});
-
-feedbackMessageEl?.addEventListener("input", () => {
-  if (feedbackCountEl) feedbackCountEl.value = feedbackMessageEl.value.length;
-});
-
-feedbackFormEl?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!feedbackFormEl.reportValidity()) return;
-
-  const formData = new FormData(feedbackFormEl);
-  saveDemoFeedback({
-    submittedAt: new Date().toISOString(),
-    spot: formData.get("spot"),
-    visitMonth: formData.get("visitMonth"),
-    category: formData.get("category"),
-    message: formData.get("message"),
-    nickname: formData.get("nickname") || "匿名"
-  });
-
-  feedbackFormEl.hidden = true;
-  if (feedbackSuccessEl) {
-    feedbackSuccessEl.hidden = false;
-    feedbackSuccessEl.querySelector("button")?.focus();
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !feedbackDialogEl?.classList.contains("is-hidden")) {
-    closeFeedbackForm();
-  }
 });
 
 if (panelCloseEl){
