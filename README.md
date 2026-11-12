@@ -1,17 +1,17 @@
-# 行田市まるわかり観光マップ
+# みんつく行田マップ
 ### 利用者参加による観光情報の補完を目指すWeb観光マップの構築と評価（卒業論文草稿）
 
 **青山学院大学 地球社会共生学部／2026年度卒業研究**
 
 > **執筆状況（2026年11月4日時点）**：IMRaD形式に整理した研究途中の草稿です。システムの実装結果と、今後実施する利用者調査・比較評価は明確に区別しています。利用者投稿が既存観光情報を補完できたという結論は、まだ得られていません。
 
-- [公開Web観光マップ](https://furuhashilab.github.io/2026gsc_ShotaArakawa/)
-- [地図への書き込み試作（別リポジトリ）](https://furuhashilab.github.io/Hackathon_Oct_ShotaArakawa/)
+- [みんつく行田マップ（公開サイト）](https://furuhashilab.github.io/2026gsc_ShotaArakawa/)
+- [地図への書き込み試作（別リポジトリ）](https://furuhashilab.github.io/gyoda-kakikomi-map/)
 - [既存参加型マップのレビュー（Issue #4）](https://github.com/furuhashilab/2026gsc_ShotaArakawa/issues/4)
 - [既存観光Webマップの成功事例レビュー（Issue #5）](https://github.com/furuhashilab/2026gsc_ShotaArakawa/issues/5)
 - [2025年度ゼミ論](https://github.com/furuhashilab/2025gsc_ShotaArakawa)
 
-![行田市まるわかり観光マップ](docs/images/map-overview.png)
+![みんつく行田マップ](docs/images/map-overview.png)
 
 ## Abstract（概要・暫定）
 
@@ -92,7 +92,7 @@ HTML・CSS・JavaScriptとMapLibre GL JSを用い、OpenStreetMap由来の地図
 | 方式 | 投稿可能な情報 | 保存・管理方法 | 現時点の状態 |
 | --- | --- | --- | --- |
 | [Googleフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdADYHqjtGAR34llFte1ydv7acGpSJ2xDD3q-FK5lg8UreQkw/viewform) | おすすめ、掲載情報の訂正、感想、任意の写真などの文章投稿 | Googleスプレッドシートのフォーム回答タブで受付・確認 | **受付を試作済み**。写真のアップロードにはGoogleログインが必要 |
-| [Terra Draw書き込みマップ](https://furuhashilab.github.io/Hackathon_Oct_ShotaArakawa/) | 地図上の地点（点）、散策ルート（線）、おすすめエリア（面）と説明 | Google Apps Scriptで受信し、別タブに保存。管理画面で確認・GeoJSONを個別保存 | **投稿・確認・書き出しを試作済み**。観光マップ本体とは別サイト |
+| [Terra Draw書き込みマップ](https://furuhashilab.github.io/gyoda-kakikomi-map/) | 地図上の地点（点）、散策ルート（線）、おすすめエリア（面）と説明 | Google Apps Scriptで受信し、別タブに保存。管理画面で確認・GeoJSONを個別保存 | **投稿・確認・書き出しを試作済み**。観光マップ本体とは別サイト |
 
 投稿内容は自動的に一般公開せず、管理者が確認・選別して必要な情報を反映する設計とした。観光マップ本体にはSupabase Auth・PostgreSQL・Storageを使った管理画面があり、**既存スポットの文章・写真等の下書き保存、公開前確認、公開、直前公開の取り消し**ができる。一方、**新しいスポットや投稿GeoJSONをオンラインでそのまま公開する機能、2つの投稿方式への統合導線は未実装**である。投稿後の確認・掲載工程は現在、手動操作を伴う。
 
