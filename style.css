@@ -176,9 +176,11 @@ body {
 
 .map-header h1 {
   margin: 0;
-  font-size: clamp(20px, 2.5vw, 32px);
-  font-weight: 700;
-  line-height: 1.15;
+  font-family: "Mochiy Pop One", "Zen Maru Gothic", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
   letter-spacing: 0;
 }
 
@@ -1530,7 +1532,7 @@ body.feedback-dialog-open {
 
   .map-header h1 {
     font-size: 15px;
-    line-height: 1.25;
+    line-height: 1.4;
   }
 
   .map-header p {
