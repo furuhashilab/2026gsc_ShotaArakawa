@@ -125,43 +125,6 @@ if (typeof mobilePanelMedia.addEventListener === "function") {
 
 syncMobilePanelLayout();
 
-function initPetalLayer() {
-  const layer = document.getElementById("petal-layer");
-  if (!layer) return;
-
-  const petalCount = window.matchMedia("(max-width: 760px)").matches ? 14 : 22;
-  const fragment = document.createDocumentFragment();
-
-  for (let i = 0; i < petalCount; i += 1) {
-    const petal = document.createElement("span");
-    const size = 8 + Math.random() * 10;
-    const duration = 18 + Math.random() * 18;
-    const delay = Math.random() * -duration;
-    const x = Math.random() * 100;
-    const drift = (Math.random() * 34 - 17).toFixed(1);
-    const sway = (8 + Math.random() * 24).toFixed(1);
-    const rotate = (Math.random() * 360).toFixed(1);
-    const opacity = (0.22 + Math.random() * 0.28).toFixed(2);
-    const staticY = (Math.random() * 96).toFixed(1);
-
-    petal.className = "lotus-petal";
-    petal.style.setProperty("--petal-size", `${size.toFixed(1)}px`);
-    petal.style.setProperty("--petal-duration", `${duration.toFixed(1)}s`);
-    petal.style.setProperty("--petal-delay", `${delay.toFixed(1)}s`);
-    petal.style.setProperty("--petal-x", `${x.toFixed(1)}vw`);
-    petal.style.setProperty("--petal-drift", `${drift}vw`);
-    petal.style.setProperty("--petal-sway", `${sway}px`);
-    petal.style.setProperty("--petal-rotate", `${rotate}deg`);
-    petal.style.setProperty("--petal-opacity", opacity);
-    petal.style.setProperty("--petal-static-y", `${staticY}vh`);
-    fragment.appendChild(petal);
-  }
-
-  layer.replaceChildren(fragment);
-}
-
-initPetalLayer();
-
 async function openGoogleMapsRoute(destLat, destLon) {
   const destination = `${destLat},${destLon}`;
   const destinationOnlyUrl =
